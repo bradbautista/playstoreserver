@@ -40,7 +40,7 @@ app.get('/apps', (req, res) => {
             })
             .reverse()
 
-            res.json(results);
+            return res.json(results);
 
         }
 
@@ -52,7 +52,7 @@ app.get('/apps', (req, res) => {
                 return a[sort] > b[sort] ? 1 : a[sort] < b[sort] ? -1 : 0;
             })
 
-            res.json(results);
+            return res.json(results);
 
         }
 
@@ -81,7 +81,7 @@ app.get('/apps', (req, res) => {
         //     return a[sort] > b[sort] ? 1 : a[sort] < b[sort] ? -1 : 0;
         // })
 
-        res.json(results);
+        return res.json(results);
     }
 
     if (genre && sort) {
@@ -119,7 +119,7 @@ app.get('/apps', (req, res) => {
             })
             .reverse()
 
-            res.json(results);
+            return res.json(results);
         }
   
         // If they sort by app, we want an ascending list
@@ -130,7 +130,7 @@ app.get('/apps', (req, res) => {
                 return a[sort] > b[sort] ? 1 : a[sort] < b[sort] ? -1 : 0;
             })
 
-            res.json(results);
+            return res.json(results);
 
         }
     }
@@ -138,8 +138,4 @@ app.get('/apps', (req, res) => {
     res.json(results);
 })
 
-// Spinning up!
-
-app.listen(8000, () => {
-    console.log('Server is listening on port 8000.')
-})
+module.exports = app;
